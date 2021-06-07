@@ -13,16 +13,20 @@ class game:
         self.gamestate = 0
         self.tempinput = ""
     
+    # takes the coords dict and the winpatterns dict and checks for matching patterns
+    # if a matching pattern is found, changes gamestate to 1 ending the infinite loop.
     def check4winner(self):
         pass
-
+    
+    # takes in the playerstate variable and changes the player symbol to either 
+    # x or o.
     def checkPlayerState(self, playerstate):
         if playerstate == 0:
              self.xo = "x" 
         elif playerstate == 1:
                self.xo = "o"
 
-    
+    # the game logic, starts the infinite loop, and runs the game mechanics.
     def logic(self):
         while self.gamestate == 0:
             self.drawboard()
@@ -36,10 +40,11 @@ class game:
             self.endscreen()
             self.gamestate = 1
 
-
+    # used to start the game by calling the logic method.
     def start(self):
         self.logic()
     
+    # draws the win screen and displays the winner.
     def endscreen(self):
         self.checkPlayerState(self.playerstate)
 
@@ -47,6 +52,7 @@ class game:
         print("##     {} WINS!     ##".format(self.xo))
         print("######################")
 
+    # draws the game board, and displays the current player.
     def drawboard(self):
         self.checkPlayerState(self.playerstate)
 
